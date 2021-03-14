@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Learn VueJS</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://unpkg.com/vue@3.0.5"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1 :class="toggle_color">Hello, VueJS :)</h1>
+            <header>
+                {{ title }} - {{ code }} - {{ motto }} - {{ year }}
+                <br />
+                <br />
+                <button :style="{background: btn_down, float:right}" @click="toggleColor">Swap</button>
+            </header>
+            <div :class="center">
+                <button v-on:click="year++" :style="{background: btn_up}">
+                    Increase Year
+                </button>
+                <br />
+                <br />
+                <button v-on:click="year--" :style="{background: btn_down}">
+                    Decrease Year
+                </button>
+                <button @click="code ='ANC'":style="{background: btn_down}">Change Code</button>
+                <button @click="changeTitle('Ankerfield')" :style="{background: btn_up}">Change Title</button>
+            </div>
+            <ul v-if="showStaffs" class="staff">
+                <li :style="{background: btn_down}">
+                    <div class="staff-list">
+                        IMAGE
+                    </div>
+                    <div class="staff-list">
+                        ROLE TYPE
+                    </div>
+                    <div class="staff-list">
+                        SALARY
+                    </div>
+                </li>
+                <li v-for="staff in staffs" :class="{ favo: staff.fav }" @click="toggleFav(staff)" @dblclick="updSal(staff)">
+                    <div class="staff-list">
+                        <img :src="staff['pic']"/>
+                    </div>
+                    <div class="staff-list">
+                        <span>{{ staff['role'] }}</span>
+                    </div>
+                    <div class="staff-list">
+                        <span>#{{ staff['salary'] }}</span>
+                    </div>
+                </li>
+            </ul>
+            <div :class="center">
+                <button @click="toggleShowStaffs">
+                    <span v-if="showStaffs">Hide-list</span>
+                    <span v-if="!showStaffs">Show-list</span>
+                </button>
+                <br />
+                <br />
+                <button @click="toggleShowStaffs">
+                    <span v-if="showStaffs">Hide-list</span>
+                    <span v-else>Show-list</span>
+                </button>
+            </div>
+            <br />
+            <br />
+            <div v-show="showStaffs">That is all the staffs!</div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
