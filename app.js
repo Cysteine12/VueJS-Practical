@@ -15,11 +15,11 @@ const app = Vue.createApp({
             showStaffs: true,
             
             staffs: [
-                {pic: 'img/1.jpg', role: 'Principal', salary: 20000, fav: true},
-                {pic: 'img/2.jpg', role: 'Teacher', salary: 15000, fav: false},
-                {pic: 'img/3.jpg', role: 'Cleaner', salary: 5000, fav: true},
-                {pic: 'img/4.jpg', role: 'Gateman', salary: 5000, fav: true},
-                {pic: 'img/5.jpeg', role: 'Security', salary: 5000, fav: false},
+                {pic: './1.jpg', role: 'Principal', salary: 20000, fav: true},
+                {pic: './2.jpg', role: 'Teacher', salary: 15000, fav: false},
+                {pic: './3.jpg', role: 'Cleaner', salary: 5000, fav: true},
+                {pic: './4.jpg', role: 'Gateman', salary: 5000, fav: true},
+                {pic: './5.jpeg', role: 'Security', salary: 5000, fav: false},
                 ]
         }
     },
